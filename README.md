@@ -1,2 +1,3 @@
 # MSFEffB4-Based-Steel-Surface-Defect-Detection-System
 本项目是一个基于深度学习的智能化钢铁表面缺陷检测解决方案，旨在解决传统人工检测方法效率低下、精度有限的问题。系统采用创新的MSFEffB4网络架构，在EfficientNet-B4骨干网络基础上融合多尺度特征提取和双重注意力机制，能够高效识别钢带表面的裂纹、锈迹、划痕、凹坑等多种缺陷类型。
+This project is an intelligent steel surface defect detection solution based on deep learning, designed to address the issues of low efficiency and limited accuracy in traditional manual inspection methods. The system employs an innovative MSFEffB4 network architecture that integrates multi-scale feature extraction and dual attention mechanisms on top of the EfficientNet-B4 backbone network, enabling efficient identification of various defect types on steel strip surfaces, including cracks, rust, scratches, and pits.
