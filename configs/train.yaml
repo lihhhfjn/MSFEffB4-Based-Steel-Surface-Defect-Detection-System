@@ -1,0 +1,66 @@
+# =================== Data Paths ===================
+paths:
+  data_root: "./dataset/severstal-steel-defect-detection"    # Dataset root directory
+  output_dir: "./output"                  # Output directory
+
+# -------------------------
+# Model and Input Configuration
+# -------------------------
+model:
+  # Input image dimensions [height, width] for the network
+  img_size: [256, 1024]
+
+# -------------------------
+# Training Hyperparameters
+# -------------------------
+training:
+  # --- Two-Stage Learning Rates ---
+  # Initial learning rate for stage 1 (feature learning)
+  lr1: 0.0005
+  # Learning rate for stage 2 (fine-tuning)
+  lr2: 0.00005
+
+  # --- Epochs ---
+  # Number of epochs for stage 1
+  epochs1: 1
+  # Number of epochs for stage 2
+  epochs2: 1
+
+  # --- Batch Size and Early Stopping ---
+  # Number of samples per batch
+  batch_size: 24
+  # Patience for early stopping before halting training
+  patience: 7
+  # --- Reproducibility ---
+  seed: 42
+# -------------------------
+# Validation Strategy
+# -------------------------
+validation:
+  # Enable k-fold cross-validation. If false, a single train/val split is used.
+  kfold: false
+  # Number of folds to use if kfold is enabled
+  k_folds: 5
+
+# -------------------------
+# Adaptive Minority Class Augmentation
+# -------------------------
+adaptive_augmentation:
+  # Method to detect minority classes. Options: [threshold, ratio, hybrid]
+  detection_method: 'hybrid'
+
+  # Ratio of minority class count to majority class count to be considered a minority.
+  # Used when detection_method is 'threshold' or 'hybrid'.
+  threshold_ratio: 0.3
+
+  # Imbalance ratio between the largest defect class and other classes.
+  # Used when detection_method is 'ratio' or 'hybrid'.
+  imbalance_threshold: 5.0
+
+  # Target sample count for minority classes, expressed as a ratio of the majority class size.
+  # e.g., 0.6 means augment minority classes to have 60% of the samples of the largest class.
+  target_balance_ratio: 0.6
+
+  # Maximum factor by which a minority class can be augmented to prevent excessive/unrealistic samples.
+  # e.g., a factor of 15 means a class with 10 samples can be augmented to a maximum of 150 samples.
+  max_aug_factor: 15
